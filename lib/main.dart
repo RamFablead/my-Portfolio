@@ -1,4 +1,5 @@
 import 'dart:html' as html; // Web specific
+
 import 'package:flutter/foundation.dart'; // kIsWeb mate
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,12 +16,14 @@ class BwPortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "HIREN'S PORTFOLIO",
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.black,
+      title: "HARESH'S PORTFOLIO",
+      theme: ThemeData.light().copyWith(
+        // CHANGE 1: White Background
+        scaffoldBackgroundColor: Colors.white,
+        // CHANGE 2: Black Text Theme
         textTheme: GoogleFonts.spaceGroteskTextTheme(
           Theme.of(context).textTheme,
-        ).apply(bodyColor: Colors.white, displayColor: Colors.white),
+        ).apply(bodyColor: Colors.black, displayColor: Colors.black),
       ),
       home: const MouseHomePage(),
     );
@@ -45,84 +48,126 @@ class _MouseHomePageState extends State<MouseHomePage> {
   final GlobalKey _workKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
-  // State Variables
   int _selectedSkillIndex = 0;
-  bool _showAllProjects = false; // <--- NEW VARIABLE FOR VIEW ALL
+  bool _showAllProjects = false;
 
-  // Experience Data
   final List<Map<String, String>> myExperience = [
     {
-      "year": "2023 - Present",
-      "role": "Senior Flutter Developer",
-      "company": "Tech Solutions Inc.",
-      "desc": "Leading a team of 5 developers, building scalable apps using Clean Architecture and Bloc."
+      "year": "2023- Present",
+      "role": "Junior Mobile App Developer",
+      "company": "Fablead Developer Technolab",
+      "desc":
+          "Developed 10+ mobile applications for startups, focusing on UI/UX and Firebase integration.",
     },
     {
-      "year": "2021 - 2023",
-      "role": "Mobile App Developer",
-      "company": "Creative Agency",
-      "desc": "Developed 10+ mobile applications for startups, focusing on UI/UX and Firebase integration."
-    },
-    {
-      "year": "2020 - 2021",
-      "role": "Junior Developer",
-      "company": "StartUp Hub",
-      "desc": "Started journey with Flutter, worked on bug fixing and API integration."
+      "year": "2020 - 2023",
+      "role": "Training",
+      "company": "Cody Fly",
+      "desc":
+          "Started journey with Flutter, worked on bug fixing and API integration.",
     },
   ];
 
   // Skills Data
   final List<Map<String, String>> mySkills = [
-    {"name": "Flutter", "detail": "Expert in building high-performance, cross-platform mobile and web applications using Flutter framework."},
-    {"name": "Dart", "detail": "Deep understanding of Dart language concepts including asynchronous programming and null safety."},
-    {"name": "Firebase", "detail": "Proficient in Firestore, Realtime Database, Cloud Functions, and Authentication setup."},
-    {"name": "REST API", "detail": "Experienced in integrating complex RESTful APIs and handling JSON serialization."},
-    {"name": "GetX / Bloc", "detail": "Strong command over state management solutions like GetX and BLoC for scalable apps."},
-    {"name": "Git & GitHub", "detail": "Proficient in version control, branching strategies, and pull requests."},
+    {
+      "name": "Flutter",
+      "detail":
+          "Expert in building high-performance, cross-platform mobile and web applications using Flutter framework.",
+    },
+    {
+      "name": "Dart",
+      "detail":
+          "Deep understanding of Dart language concepts including asynchronous programming and null safety.",
+    },
+    {
+      "name": "Firebase",
+      "detail":
+          "Proficient in Firestore, Realtime Database, Cloud Functions, and Authentication setup.",
+    },
+    {
+      "name": "REST API",
+      "detail":
+          "Experienced in integrating complex RESTful APIs and handling JSON serialization.",
+    },
+    {
+      "name": "GetX / Bloc",
+      "detail":
+          "Strong command over state management solutions like GetX and BLoC for scalable apps.",
+    },
+    {
+      "name": "Git & GitHub",
+      "detail":
+          "Proficient in version control, branching strategies, and pull requests.",
+    },
   ];
 
   // Services Data
   final List<Map<String, dynamic>> myServices = [
-    {"title": "Mobile App Dev", "icon": Icons.phone_android, "desc": "Building high-quality iOS & Android apps."},
-    {"title": "Web Development", "icon": Icons.web, "desc": "Responsive web applications using Flutter Web."},
-    {"title": "UI/UX Design", "icon": Icons.design_services, "desc": "Converting Figma designs into pixel-perfect code."},
-    {"title": "Backend Integration", "icon": Icons.cloud_sync, "desc": "Seamless integration with Firebase & APIs."},
+    {
+      "title": "Mobile App Dev",
+      "icon": Icons.phone_android,
+      "desc": "Building high-quality iOS & Android apps.",
+    },
+    {
+      "title": "Web Development",
+      "icon": Icons.web,
+      "desc": "Responsive web applications using Flutter Web.",
+    },
+    {
+      "title": "UI/UX Design",
+      "icon": Icons.design_services,
+      "desc": "Converting Figma designs into pixel-perfect code.",
+    },
+    {
+      "title": "Backend Integration",
+      "icon": Icons.cloud_sync,
+      "desc": "Seamless integration with Firebase & APIs.",
+    },
   ];
 
   // Projects Data
+
   final List<Map<String, String>> myProjects = [
     {
       "number": "01",
       "title": "Wavee Ai",
       "desc": "Wavee AI is a secure, AI-powered social and service platform.",
-      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+      "image":
+          "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80%22",
       "link": "https://github.com/HirenChandaliya/gyan.git",
       "ios": "https://apps.apple.com/in/app/wavee-ai/id6747960891",
-      "android": "https://play.google.com/store/apps/details?id=com.wavee.community&hl=en_IN",
+      "android":
+          "https://play.google.com/store/apps/details?id=com.wavee.community&hl=en_IN",
     },
     {
       "number": "02",
       "title": "Wavee Concierge",
       "desc": "Empowers your front desk to streamline daily operations.",
-      "image": "https://cdn.prod.website-files.com/68a80407f668ec1af2d50c35/68b750355ce12b54500af5d9_shutterstock_2441452587.jpg",
+      "image":
+          "https://cdn.prod.website-files.com/68a80407f668ec1af2d50c35/68b750355ce12b54500af5d9_shutterstock_2441452587.jpg%22",
       "link": "https://github.com/HirenChandaliya/gyan.git",
       "ios": "https://apps.apple.com/app-link",
-      "android": "https://play.google.com/store/apps/details?id=com.pets.wavee&hl=en_IN",
+      "android":
+          "https://play.google.com/store/apps/details?id=com.pets.wavee&hl=en_IN",
     },
     {
       "number": "03",
       "title": "Wavee Pet",
       "desc": "Wavee Pets is the ultimate platform for pet lovers.",
-      "image": "https://cdn.prod.website-files.com/68e7cc1eb18069b17c9cd8e7/68e7e3baf19e226cf4cd117c_Pet-Life.jpg",
+      "image":
+          "https://cdn.prod.website-files.com/68e7cc1eb18069b17c9cd8e7/68e7e3baf19e226cf4cd117c_Pet-Life.jpg",
       "link": "https://github.com/HirenChandaliya/gyan.git",
       "ios": "https://apps.apple.com/us/app/wavee-pet/id6746203457",
-      "android": "https://play.google.com/store/apps/details?id=com.pets.wavee&hl=en_IN",
+      "android":
+          "https://play.google.com/store/apps/details?id=com.pets.wavee&hl=en_IN",
     },
     {
       "number": "04",
       "title": "CRM App",
       "desc": "Custom CRM solution for managing client relationships.",
-      "image": "https://blog-cdn.quarkly.io/2023/01/Best-CRM-Tools-for-Small-Businesses.png",
+      "image":
+          "https://blog-cdn.quarkly.io/2023/01/Best-CRM-Tools-for-Small-Businesses.png",
       "link": "https://github.com/HirenChandaliya/gyan.git",
       "ios": "https://apps.apple.com/app-link",
       "android": "https://play.google.com/store/apps",
@@ -131,7 +176,84 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "number": "05",
       "title": "Fitness Tracker",
       "desc": "A workout tracking app with diet plans and progress charts.",
-      "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
+      "image":
+          "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80%22",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
+    {
+      "number": "06",
+      "title": "Grubb Food & Dine-in",
+      "desc":
+          "Gruubb – Great taste, fresh meals, and smooth dining every time.",
+      "image": "https://grubb.co.in/img/all_vendor.png",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
+    {
+      "number": "07",
+      "title": "Grubb Merchant",
+      "desc":
+          "Track orders in real-time, analyze sales like a pro, all from the palm of your hand. Optimise menus, boost deliveries, and watch your profits soar.Grubb Merchant - Take control, deliver success",
+      "image":
+          "https://play-lh.googleusercontent.com/04YSnGouyh6iOHnBWiFPkZ9bkBej08sVbCxTux6GBbylWbNI3V1oalWOA0BbsljQ4dFb=w240-h480-rw",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
+    {
+      "number": "08",
+      "title": "Grubb Bolt(Driver)",
+      "desc":
+          "Grubb Bolt is your ultimate companion for managing food deliveries on the go. Designed specifically for delivery agents, this powerful app provides you with everything you need to streamline your tasks, maximize efficiency, and increase your earnings—all from the convenience of your smartphone.",
+      "image":
+          "https://play-lh.googleusercontent.com/19juLlvwjlmzotcCoIgnkXjjMCOVR1mQ9xeJSURlcnl12W-2IgtK0SG-bV2vvSXqdZs=w240-h480-rw",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
+    {
+      "number": "09",
+      "title": "Localwala App",
+      "desc":
+          "With the Localwala App, customers can easily shop from nearby stores and discounts available on the Localwala App.",
+      "image":
+          "https://play-lh.googleusercontent.com/GJ28fWoOIvVq5CRu-d9PmptoJy1FvdPpkHAh3XJdHlxI7tXH4RkbIZZMneyuaXC3Yg=w240-h480-rw",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
+    {
+      "number": "10",
+      "title": "Udibaba",
+      "desc":
+          "Welcome to Udibaba, your one-stop platform to buy fresh and high-quality fruits directly from sellers across the country. Whether you're craving seasonal fruits or need a variety of fresh produce, Udibaba ensures that you can easily browse through a wide selection of fruit vendors near you. With our user-friendly interface, customers can:Explore a wide variety of fresh fruits, including local and exotic options.Place orders from multiple sellers in just a few taps.Enjoy safe and secure payment options, with a range of payment methods available.",
+      "image":
+          "https://play-lh.googleusercontent.com/38JAG8P79PX9Y2sPXg5ZsjXagq4p1b3vIstBpbzUvSzRbl_Bd4NShaX4lnymmlFJcg=w240-h480-rw",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
+    {
+      "number": "11",
+      "title": "Udibaba Store",
+      "desc":
+          "dibaba Store is the perfect platform for sellers to showcase their fresh fruits and expand their reach to customers across the country. This app is designed to make it easier for fruit vendors to manage their inventory, track orders, and grow their business.",
+      "image":
+          "https://play-lh.googleusercontent.com/38JAG8P79PX9Y2sPXg5ZsjXagq4p1b3vIstBpbzUvSzRbl_Bd4NShaX4lnymmlFJcg=w240-h480-rw",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
+    {
+      "number": "12",
+      "title": "TEEESSENTIALS",
+      "desc":
+          "Casa App is a order booking app which is used by its internal users and distributors. Users will be able to see entire catalogue of products and book orders on the app. The advantage of the application is it has up to date stock values which a user can see while booking an order.",
+      "image":
+          "https://play-lh.googleusercontent.com/WcknI1kXuIAUfGmyeDsdG6YVs9IwklQ9cZA3Mb877Ee0hiTlN1yiNvBV8YLInCYwQyo=w240-h480-rw",
       "link": "https://github.com/HirenChandaliya/gyan.git",
       "ios": "",
       "android": "",
@@ -164,12 +286,12 @@ class _MouseHomePageState extends State<MouseHomePage> {
     final isMobile = width < 800;
     const showEffects = true;
 
-    // --- LOGIC FOR VIEW ALL ---
-    // If _showAllProjects is true, show full list. Else show first 3.
-    final visibleProjects = _showAllProjects ? myProjects : myProjects.take(3).toList();
+    final visibleProjects = _showAllProjects
+        ? myProjects
+        : myProjects.take(3).toList();
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white, // White Background
       body: MouseRegion(
         onHover: (event) {
           setState(() {
@@ -189,17 +311,20 @@ class _MouseHomePageState extends State<MouseHomePage> {
           },
           child: Stack(
             children: [
-              // 1. Spotlight
+              // 1. Spotlight (Inverted colors)
               if (showEffects)
                 Container(
                   decoration: BoxDecoration(
                     gradient: RadialGradient(
                       center: Alignment(
                         (_mousePos.dx / width) * 2 - 1,
-                        (_mousePos.dy / MediaQuery.of(context).size.height) * 2 - 1,
+                        (_mousePos.dy / MediaQuery.of(context).size.height) *
+                                2 -
+                            1,
                       ),
                       radius: 0.8,
-                      colors: [Colors.white.withOpacity(0.15), Colors.black],
+                      // Dark grey spotlight on White background
+                      colors: [Colors.black.withOpacity(0.05), Colors.white],
                       stops: const [0.0, 1.0],
                     ),
                   ),
@@ -210,8 +335,12 @@ class _MouseHomePageState extends State<MouseHomePage> {
                 children: [
                   Container(
                     width: double.infinity,
-                    color: Colors.black.withOpacity(0.9),
-                    padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : 50, vertical: 20),
+                    // White translucent header
+                    color: Colors.white.withOpacity(0.9),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isMobile ? 20 : 50,
+                      vertical: 20,
+                    ),
                     child: _buildHeader(isMobile),
                   ),
 
@@ -221,37 +350,71 @@ class _MouseHomePageState extends State<MouseHomePage> {
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : 50),
+                            padding: EdgeInsets.symmetric(
+                              horizontal: isMobile ? 20 : 50,
+                            ),
                             constraints: const BoxConstraints(maxWidth: 1000),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-
                                 // Intro
                                 Container(
                                   key: _homeKey,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text("HELLO, I AM", style: TextStyle(color: Colors.grey[600], letterSpacing: 2, fontSize: isMobile ? 14 : 16)),
+                                      Text(
+                                        "HELLO, I AM",
+                                        style: TextStyle(
+                                          color: Colors.grey[700],
+                                          letterSpacing: 2,
+                                          fontSize: isMobile ? 14 : 16,
+                                        ),
+                                      ),
                                       const SizedBox(height: 10),
-                                      Text("HIREN\nCHANDALIYA", style: TextStyle(fontSize: isMobile ? 40 : 90, fontWeight: FontWeight.w900, height: 0.9, letterSpacing: -2)),
+                                      Text(
+                                        "HARESH\nMANGUKIYA",
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 40 : 90,
+                                          fontWeight: FontWeight.w900,
+                                          height: 0.9,
+                                          letterSpacing: -2,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                       const SizedBox(height: 10),
-                                      Text("FLUTTER DEVELOPER", style: TextStyle(fontSize: isMobile ? 30 : 70, fontWeight: FontWeight.w900, height: 0.9, letterSpacing: -2, color: Colors.grey[800])),
+                                      Text(
+                                        "FLUTTER DEVELOPER",
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 30 : 70,
+                                          fontWeight: FontWeight.w900,
+                                          height: 0.9,
+                                          letterSpacing: -2,
+                                          color: Colors.grey[800],
+                                        ),
+                                      ),
                                       const SizedBox(height: 40),
-                                      Text("I create high-performance apps and websites using Flutter.\nCheck out my latest work below.", style: TextStyle(fontSize: isMobile ? 16 : 18, color: Colors.grey)),
+                                      Text(
+                                        "I create high-performance apps and websites using Flutter.\nCheck out my latest work below.",
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 16 : 18,
+                                          color: Colors.grey[700],
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
 
                                 const SizedBox(height: 80),
 
-                                // Stats
+                                // Stats (Black Text)
                                 Wrap(
-                                  spacing: 40, runSpacing: 20,
+                                  spacing: 40,
+                                  runSpacing: 20,
                                   children: [
                                     _buildStatItem("3+", "YEARS EXP."),
-                                    _buildStatItem("20+", "PROJECTS DONE"),
+                                    _buildStatItem("15+", "PROJECTS DONE"),
                                     _buildStatItem("15+", "HAPPY CLIENTS"),
                                   ],
                                 ),
@@ -262,30 +425,74 @@ class _MouseHomePageState extends State<MouseHomePage> {
                                 Container(
                                   key: _skillsKey,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      const Divider(color: Colors.white24),
+                                      const Divider(color: Colors.black12),
                                       const SizedBox(height: 50),
-                                      Text("MY EXPERTISE / TECH STACK", style: TextStyle(fontSize: isMobile ? 12 : 14, letterSpacing: 2, color: Colors.white)),
-                                      const SizedBox(height: 30),
-                                      Wrap(
-                                        spacing: 15, runSpacing: 15,
-                                        children: List.generate(mySkills.length, (index) => _buildInteractiveSkillItem(index)),
+                                      Text(
+                                        "MY EXPERTISE / TECH STACK",
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 12 : 14,
+                                          letterSpacing: 2,
+                                          color: Colors.black,
+                                        ),
                                       ),
                                       const SizedBox(height: 30),
+                                      Wrap(
+                                        spacing: 15,
+                                        runSpacing: 15,
+                                        children: List.generate(
+                                          mySkills.length,
+                                          (index) =>
+                                              _buildInteractiveSkillItem(index),
+                                        ),
+                                      ),
+                                      const SizedBox(height: 30),
+                                      // Skill Detail (White bg -> Black Border)
                                       AnimatedSwitcher(
-                                        duration: const Duration(milliseconds: 300),
+                                        duration: const Duration(
+                                          milliseconds: 300,
+                                        ),
                                         child: Container(
-                                          key: ValueKey<int>(_selectedSkillIndex),
+                                          key: ValueKey<int>(
+                                            _selectedSkillIndex,
+                                          ),
                                           width: double.infinity,
                                           padding: const EdgeInsets.all(25),
-                                          decoration: BoxDecoration(border: Border.all(color: Colors.white, width: 1), borderRadius: BorderRadius.circular(15), color: Colors.white.withOpacity(0.05)),
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color: Colors.black,
+                                              width: 1,
+                                            ),
+                                            borderRadius: BorderRadius.circular(
+                                              15,
+                                            ),
+                                            color: Colors.black.withOpacity(
+                                              0.02,
+                                            ),
+                                          ),
                                           child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Text(mySkills[_selectedSkillIndex]['name']!, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
+                                              Text(
+                                                mySkills[_selectedSkillIndex]['name']!,
+                                                style: const TextStyle(
+                                                  fontSize: 22,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
                                               const SizedBox(height: 10),
-                                              Text(mySkills[_selectedSkillIndex]['detail']!, style: const TextStyle(fontSize: 16, color: Colors.white70, height: 1.5)),
+                                              Text(
+                                                mySkills[_selectedSkillIndex]['detail']!,
+                                                style: const TextStyle(
+                                                  fontSize: 16,
+                                                  color: Colors.black87,
+                                                  height: 1.5,
+                                                ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -300,20 +507,40 @@ class _MouseHomePageState extends State<MouseHomePage> {
                                 Container(
                                   key: _servicesKey,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      const Divider(color: Colors.white24),
+                                      const Divider(color: Colors.black12),
                                       const SizedBox(height: 50),
-                                      Text("WHAT I OFFER", style: TextStyle(fontSize: isMobile ? 12 : 14, letterSpacing: 2, color: Colors.white)),
+                                      Text(
+                                        "WHAT I OFFER",
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 12 : 14,
+                                          letterSpacing: 2,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                       const SizedBox(height: 30),
                                       GridView.builder(
                                         shrinkWrap: true,
-                                        physics: const NeverScrollableScrollPhysics(),
-                                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: isMobile ? 1 : 2, crossAxisSpacing: 20, mainAxisSpacing: 20, childAspectRatio: isMobile ? 1.5 : 1.8,
-                                        ),
+                                        physics:
+                                            const NeverScrollableScrollPhysics(),
+                                        gridDelegate:
+                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: isMobile ? 1 : 2,
+                                              crossAxisSpacing: 20,
+                                              mainAxisSpacing: 20,
+                                              childAspectRatio: isMobile
+                                                  ? 1.5
+                                                  : 1.8,
+                                            ),
                                         itemCount: myServices.length,
-                                        itemBuilder: (context, index) => ServiceCard(title: myServices[index]['title'], desc: myServices[index]['desc'], icon: myServices[index]['icon']),
+                                        itemBuilder: (context, index) =>
+                                            ServiceCard(
+                                              title: myServices[index]['title'],
+                                              desc: myServices[index]['desc'],
+                                              icon: myServices[index]['icon'],
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -325,11 +552,19 @@ class _MouseHomePageState extends State<MouseHomePage> {
                                 Container(
                                   key: _experienceKey,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      const Divider(color: Colors.white24),
+                                      const Divider(color: Colors.black12),
                                       const SizedBox(height: 50),
-                                      Text("MY EXPERIENCE", style: TextStyle(fontSize: isMobile ? 12 : 14, letterSpacing: 2, color: Colors.white)),
+                                      Text(
+                                        "MY EXPERIENCE",
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 12 : 14,
+                                          letterSpacing: 2,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                       const SizedBox(height: 30),
                                       ...myExperience.map((exp) {
                                         return ExperienceCard(
@@ -349,11 +584,19 @@ class _MouseHomePageState extends State<MouseHomePage> {
                                 Container(
                                   key: _workKey,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      const Divider(color: Colors.white24),
+                                      const Divider(color: Colors.black12),
                                       const SizedBox(height: 50),
-                                      Text("RECENT WORK", style: TextStyle(fontSize: isMobile ? 12 : 14, letterSpacing: 2, color: Colors.white)),
+                                      Text(
+                                        "SELECTED WORK",
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 12 : 14,
+                                          letterSpacing: 2,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                       const SizedBox(height: 50),
                                     ],
                                   ),
@@ -376,55 +619,120 @@ class _MouseHomePageState extends State<MouseHomePage> {
                                       });
                                     },
                                     style: OutlinedButton.styleFrom(
-                                      side: const BorderSide(color: Colors.white),
-                                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                      side: const BorderSide(
+                                        color: Colors.black,
+                                      ),
+                                      foregroundColor: Colors.black,
+                                      // Text black
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 40,
+                                        vertical: 20,
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(50),
+                                      ),
                                     ),
                                     child: Text(
-                                      _showAllProjects ? "SHOW LESS" : "VIEW ALL PROJECTS",
-                                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1),
+                                      _showAllProjects
+                                          ? "SHOW LESS"
+                                          : "VIEW ALL PROJECTS",
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1,
+                                      ),
                                     ),
                                   ),
                                 ),
-
                               ],
                             ),
                           ),
 
                           const SizedBox(height: 80),
 
-                          // Footer
+                          // Footer (Light Grey Background)
                           Container(
                             key: _contactKey,
                             width: double.infinity,
-                            color: const Color(0xFF0A0A0A),
+                            color: const Color(0xFFF5F5F5), // Light Grey
                             child: Column(
                               children: [
-                                Container(height: 1, color: Colors.white24),
+                                Container(height: 1, color: Colors.black12),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 80, horizontal: isMobile ? 20 : 50),
+                                  padding: EdgeInsets.symmetric(
+                                    vertical: 80,
+                                    horizontal: isMobile ? 20 : 50,
+                                  ),
                                   child: Column(
                                     children: [
-                                      const Text("Have an idea?", style: TextStyle(fontSize: 16, color: Colors.grey, letterSpacing: 1)),
+                                      const Text(
+                                        "Have an idea?",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.grey,
+                                          letterSpacing: 1,
+                                        ),
+                                      ),
                                       const SizedBox(height: 15),
-                                      Text("LET'S CONNECT.", textAlign: TextAlign.center, style: TextStyle(fontSize: isMobile ? 36 : 64, fontWeight: FontWeight.w900, color: Colors.white, letterSpacing: -1)),
+                                      Text(
+                                        "LET'S CONNECT.",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: isMobile ? 36 : 64,
+                                          fontWeight: FontWeight.w900,
+                                          color: Colors.black,
+                                          letterSpacing: -1,
+                                        ),
+                                      ),
                                       const SizedBox(height: 40),
                                       ElevatedButton(
-                                        onPressed: () => openLink("mailto:hirenpchandaliya@gmail.com"),
-                                        style: ElevatedButton.styleFrom(backgroundColor: Colors.white, foregroundColor: Colors.black, padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 22), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))),
-                                        child: const Text("hirenpchandaliya@gmail.com", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                                        onPressed: () => openLink(
+                                          "mailto:hirenpchandaliya@gmail.com",
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.black,
+                                          foregroundColor: Colors.white,
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 40,
+                                            vertical: 22,
+                                          ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              50,
+                                            ),
+                                          ),
+                                        ),
+                                        child: const Text(
+                                          "hirenpchandaliya@gmail.com",
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(height: 60),
                                       Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
-                                          _buildCircularSocialIcon(Icons.code, "https://github.com/HirenChandaliya"),
+                                          _buildCircularSocialIcon(
+                                            Icons.code,
+                                            "https://github.com/HirenChandaliya",
+                                          ),
                                           const SizedBox(width: 20),
-                                          _buildCircularSocialIcon(Icons.link, "https://linkedin.com/"),
+                                          _buildCircularSocialIcon(
+                                            Icons.link,
+                                            "https://www.linkedin.com/in/hiren-chandaliya-784733306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                                          ),
                                         ],
                                       ),
                                       const SizedBox(height: 60),
-                                      const Text("© 2025 Hiren Chandaliya. All Rights Reserved.", style: TextStyle(fontSize: 12, color: Colors.grey)),
+                                      const Text(
+                                        "© 2025 HARESH MANGUKIYA. All Rights Reserved.",
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -438,16 +746,36 @@ class _MouseHomePageState extends State<MouseHomePage> {
                 ],
               ),
 
-              // 3. Pointer
+              // 3. Pointer (Black border)
               if (showEffects)
                 Positioned(
                   left: _mousePos.dx - 20,
                   top: _mousePos.dy - 20,
                   child: IgnorePointer(
                     child: Container(
-                      width: 40, height: 40,
-                      decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.white, width: 2), boxShadow: [BoxShadow(color: Colors.white.withOpacity(0.3), blurRadius: 20, spreadRadius: 2)]),
-                      child: Center(child: Container(width: 5, height: 5, decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle))),
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.black, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 20,
+                            spreadRadius: 2,
+                          ),
+                        ],
+                      ),
+                      child: Center(
+                        child: Container(
+                          width: 5,
+                          height: 5,
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -458,14 +786,21 @@ class _MouseHomePageState extends State<MouseHomePage> {
     );
   }
 
+  // --- Widgets ---
+
   Widget _buildCircularSocialIcon(IconData icon, String url) {
     return InkWell(
       onTap: () => openLink(url),
       borderRadius: BorderRadius.circular(50),
       child: Container(
-        width: 50, height: 50,
-        decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: Colors.white24), color: Colors.white.withOpacity(0.05)),
-        child: Icon(icon, color: Colors.white, size: 20),
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.black12),
+          color: Colors.black.withOpacity(0.05),
+        ),
+        child: Icon(icon, color: Colors.black, size: 20),
       ),
     );
   }
@@ -481,14 +816,67 @@ class _MouseHomePageState extends State<MouseHomePage> {
     ];
 
     if (isMobile) {
-      return Column(children: [const Text("MY PORTFOLIO.", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)), const SizedBox(height: 20), Wrap(spacing: 15, runSpacing: 10, alignment: WrapAlignment.center, children: navLinks)]);
+      return Column(
+        children: [
+          const Text(
+            "MY PORTFOLIO.",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Wrap(
+            spacing: 15,
+            runSpacing: 10,
+            alignment: WrapAlignment.center,
+            children: navLinks,
+          ),
+        ],
+      );
     } else {
-      return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [const Text("MY PORTFOLIO.", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)), Row(children: navLinks.map((e) => Padding(padding: const EdgeInsets.only(left: 20), child: e)).toList())]);
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Text(
+            "MY PORTFOLIO.",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              color: Colors.black,
+            ),
+          ),
+          Row(
+            children: navLinks
+                .map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: e,
+                  ),
+                )
+                .toList(),
+          ),
+        ],
+      );
     }
   }
 
   Widget _navLink(String text, VoidCallback onTap) {
-    return InkWell(onTap: onTap, child: Padding(padding: const EdgeInsets.symmetric(vertical: 5), child: Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white))));
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 14,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildInteractiveSkillItem(int index) {
@@ -500,17 +888,47 @@ class _MouseHomePageState extends State<MouseHomePage> {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
-          border: Border.all(color: isSelected ? Colors.white : Colors.white24, width: isSelected ? 2 : 1),
+          border: Border.all(
+            color: isSelected ? Colors.black : Colors.black12,
+            width: isSelected ? 2 : 1,
+          ),
           borderRadius: BorderRadius.circular(50),
-          color: isSelected ? Colors.white : Colors.white.withOpacity(0.05),
+          color: isSelected ? Colors.black : Colors.transparent,
         ),
-        child: Text(mySkills[index]['name']!, style: TextStyle(color: isSelected ? Colors.black : Colors.white, fontSize: 14, fontWeight: isSelected ? FontWeight.bold : FontWeight.normal)),
+        child: Text(
+          mySkills[index]['name']!,
+          style: TextStyle(
+            color: isSelected ? Colors.white : Colors.black,
+            fontSize: 14,
+            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+          ),
+        ),
       ),
     );
   }
 
   Widget _buildStatItem(String count, String label) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(count, style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.white)), Text(label, style: const TextStyle(fontSize: 14, color: Colors.grey, letterSpacing: 1.5))]);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          count,
+          style: const TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 14,
+            color: Colors.grey,
+            letterSpacing: 1.5,
+          ),
+        ),
+      ],
+    );
   }
 
   Widget _buildProjectItem(bool isMobile, Map<String, String> project) {
@@ -518,34 +936,128 @@ class _MouseHomePageState extends State<MouseHomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: double.infinity, height: isMobile ? 200 : 400,
-          decoration: BoxDecoration(color: Colors.grey[900], image: DecorationImage(image: NetworkImage(project['image']!), fit: BoxFit.cover, colorFilter: const ColorFilter.mode(Colors.black45, BlendMode.darken)), border: Border.all(color: Colors.white24), borderRadius: BorderRadius.circular(isMobile ? 10 : 0)),
-          child: Center(child: Icon(Icons.touch_app, color: Colors.white.withOpacity(0.5), size: isMobile ? 30 : 50)),
+          width: double.infinity,
+          height: isMobile ? 200 : 400,
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            image: DecorationImage(
+              image: NetworkImage(project['image']!),
+              fit: BoxFit.cover,
+              colorFilter: const ColorFilter.mode(
+                Colors.white10,
+                BlendMode.darken,
+              ),
+            ),
+            border: Border.all(color: Colors.black12),
+            borderRadius: BorderRadius.circular(isMobile ? 10 : 0),
+          ),
+          child: Center(
+            child: Icon(
+              Icons.touch_app,
+              color: Colors.black.withOpacity(0.5),
+              size: isMobile ? 30 : 50,
+            ),
+          ),
         ),
         const SizedBox(height: 20),
-        isMobile ? Column(crossAxisAlignment: CrossAxisAlignment.start, children: _buildProjectContent(isMobile, project)) : Row(crossAxisAlignment: CrossAxisAlignment.start, children: _buildProjectContent(isMobile, project)),
+        isMobile
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: _buildProjectContent(isMobile, project),
+              )
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: _buildProjectContent(isMobile, project),
+              ),
       ],
     );
   }
 
-  List<Widget> _buildProjectContent(bool isMobile, Map<String, String> project) {
+  List<Widget> _buildProjectContent(
+    bool isMobile,
+    Map<String, String> project,
+  ) {
     if (isMobile) {
-      return [Text(project['number']!, style: const TextStyle(fontSize: 16, color: Colors.white)), const SizedBox(height: 5), Text(project['title']!, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)), const SizedBox(height: 10), Text(project['desc']!, style: const TextStyle(fontSize: 14, color: Colors.grey)), const SizedBox(height: 15), _buildButtonRow(project)];
+      return [
+        Text(
+          project['number']!,
+          style: const TextStyle(fontSize: 16, color: Colors.black),
+        ),
+        const SizedBox(height: 5),
+        Text(
+          project['title']!,
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          project['desc']!,
+          style: const TextStyle(fontSize: 14, color: Colors.grey),
+        ),
+        const SizedBox(height: 15),
+        _buildButtonRow(project),
+      ];
     } else {
-      return [Text(project['number']!, style: const TextStyle(fontSize: 20, color: Colors.grey)), const SizedBox(width: 20), Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(project['title']!, style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold)), const SizedBox(height: 10), Text(project['desc']!, style: const TextStyle(fontSize: 16, color: Colors.grey)), const SizedBox(height: 20), _buildButtonRow(project)]))];
+      return [
+        Text(
+          project['number']!,
+          style: const TextStyle(fontSize: 20, color: Colors.black38),
+        ),
+        const SizedBox(width: 20),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                project['title']!,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                project['desc']!,
+                style: const TextStyle(fontSize: 16, color: Colors.black54),
+              ),
+              const SizedBox(height: 20),
+              _buildButtonRow(project),
+            ],
+          ),
+        ),
+      ];
     }
   }
 
   Widget _buildButtonRow(Map<String, String> project) {
-    return Wrap(spacing: 15, runSpacing: 10, children: [
-      if (project['link']!.isNotEmpty) _buildActionButton("Code", Icons.code, project['link']!),
-      if (project['android']!.isNotEmpty) _buildActionButton("Play Store", Icons.android, project['android']!),
-      if (project['ios']!.isNotEmpty) _buildActionButton("App Store", Icons.apple, project['ios']!),
-    ]);
+    return Wrap(
+      spacing: 15,
+      runSpacing: 10,
+      children: [
+        // if (project['link']!.isNotEmpty) _buildActionButton("Code", Icons.code, project['link']!),
+        if (project['android']!.isNotEmpty)
+          _buildActionButton("Play Store", Icons.android, project['android']!),
+        if (project['ios']!.isNotEmpty)
+          _buildActionButton("App Store", Icons.apple, project['ios']!),
+      ],
+    );
   }
 
   Widget _buildActionButton(String label, IconData icon, String url) {
-    return OutlinedButton.icon(onPressed: () => openLink(url), icon: Icon(icon, size: 18), label: Text(label), style: OutlinedButton.styleFrom(side: const BorderSide(color: Colors.white), foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15)));
+    return OutlinedButton.icon(
+      onPressed: () => openLink(url),
+      icon: Icon(icon, size: 18),
+      label: Text(label),
+      style: OutlinedButton.styleFrom(
+        side: const BorderSide(color: Colors.black),
+        foregroundColor: Colors.black,
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      ),
+    );
   }
 }
 
@@ -553,12 +1065,21 @@ class ServiceCard extends StatefulWidget {
   final String title;
   final String desc;
   final IconData icon;
-  const ServiceCard({super.key, required this.title, required this.desc, required this.icon});
+
+  const ServiceCard({
+    super.key,
+    required this.title,
+    required this.desc,
+    required this.icon,
+  });
+
   @override
   State<ServiceCard> createState() => _ServiceCardState();
 }
+
 class _ServiceCardState extends State<ServiceCard> {
   bool isHovered = false;
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
@@ -567,25 +1088,66 @@ class _ServiceCardState extends State<ServiceCard> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.all(30),
-        decoration: BoxDecoration(color: isHovered ? Colors.white : Colors.transparent, border: Border.all(color: isHovered ? Colors.white : Colors.white24), borderRadius: BorderRadius.circular(15)),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [Icon(widget.icon, size: 40, color: isHovered ? Colors.black : Colors.white), const SizedBox(height: 20), Text(widget.title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: isHovered ? Colors.black : Colors.white)), const SizedBox(height: 10), Text(widget.desc, style: TextStyle(fontSize: 14, color: isHovered ? Colors.grey[800] : Colors.grey))]),
+        // Default White BG, Black BG on Hover
+        decoration: BoxDecoration(
+          color: isHovered ? Colors.black : Colors.white,
+          border: Border.all(color: Colors.black12),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              widget.icon,
+              size: 40,
+              color: isHovered ? Colors.white : Colors.black,
+            ),
+            const SizedBox(height: 20),
+            Text(
+              widget.title,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: isHovered ? Colors.white : Colors.black,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              widget.desc,
+              style: TextStyle(
+                fontSize: 14,
+                color: isHovered ? Colors.grey[400] : Colors.grey[700],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-// --- EXPERIENCE CARD ---
 class ExperienceCard extends StatefulWidget {
   final String year;
   final String role;
   final String company;
   final String desc;
-  const ExperienceCard({super.key, required this.year, required this.role, required this.company, required this.desc});
+
+  const ExperienceCard({
+    super.key,
+    required this.year,
+    required this.role,
+    required this.company,
+    required this.desc,
+  });
+
   @override
   State<ExperienceCard> createState() => _ExperienceCardState();
 }
+
 class _ExperienceCardState extends State<ExperienceCard> {
   bool isHovered = false;
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
@@ -595,24 +1157,56 @@ class _ExperienceCardState extends State<ExperienceCard> {
         duration: const Duration(milliseconds: 200),
         margin: const EdgeInsets.only(bottom: 20),
         padding: const EdgeInsets.all(30),
-        decoration: BoxDecoration(color: isHovered ? Colors.white : Colors.transparent, border: Border.all(color: isHovered ? Colors.white : Colors.white24), borderRadius: BorderRadius.circular(15)),
+        // Default Transparent, Black BG on Hover
+        decoration: BoxDecoration(
+          color: isHovered ? Colors.black : Colors.transparent,
+          border: Border.all(color: isHovered ? Colors.black : Colors.black12),
+          borderRadius: BorderRadius.circular(15),
+        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.year, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: isHovered ? Colors.black : Colors.white54)),
+            Text(
+              widget.year,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: isHovered ? Colors.white : Colors.black54,
+              ),
+            ),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(widget.role, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: isHovered ? Colors.black : Colors.white)),
+                  Text(
+                    widget.role,
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: isHovered ? Colors.white : Colors.black,
+                    ),
+                  ),
                   const SizedBox(height: 5),
-                  Text(widget.company, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: isHovered ? Colors.grey[800] : Colors.cyanAccent)),
+                  Text(
+                    widget.company,
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: isHovered ? Colors.grey[400] : Colors.blueGrey,
+                    ),
+                  ),
                   const SizedBox(height: 10),
-                  Text(widget.desc, style: TextStyle(fontSize: 14, color: isHovered ? Colors.grey[700] : Colors.grey)),
+                  Text(
+                    widget.desc,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: isHovered ? Colors.grey[400] : Colors.black54,
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
