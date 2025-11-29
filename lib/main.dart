@@ -41,14 +41,15 @@ class _MouseHomePageState extends State<MouseHomePage> {
   final GlobalKey _homeKey = GlobalKey();
   final GlobalKey _skillsKey = GlobalKey();
   final GlobalKey _servicesKey = GlobalKey();
-  final GlobalKey _experienceKey = GlobalKey(); // <--- NEW EXPERIENCE KEY
+  final GlobalKey _experienceKey = GlobalKey();
   final GlobalKey _workKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
-  // Skill Selection
+  // State Variables
   int _selectedSkillIndex = 0;
+  bool _showAllProjects = false; // <--- NEW VARIABLE FOR VIEW ALL
 
-  // --- 1. EXPERIENCE DATA (NO BACKEND REQUIRED) ---
+  // Experience Data
   final List<Map<String, String>> myExperience = [
     {
       "year": "2023 - Present",
@@ -117,6 +118,24 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "ios": "https://apps.apple.com/us/app/wavee-pet/id6746203457",
       "android": "https://play.google.com/store/apps/details?id=com.pets.wavee&hl=en_IN",
     },
+    {
+      "number": "04",
+      "title": "CRM App",
+      "desc": "Custom CRM solution for managing client relationships.",
+      "image": "https://blog-cdn.quarkly.io/2023/01/Best-CRM-Tools-for-Small-Businesses.png",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "https://apps.apple.com/app-link",
+      "android": "https://play.google.com/store/apps",
+    },
+    {
+      "number": "05",
+      "title": "Fitness Tracker",
+      "desc": "A workout tracking app with diet plans and progress charts.",
+      "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
+      "link": "https://github.com/HirenChandaliya/gyan.git",
+      "ios": "",
+      "android": "",
+    },
   ];
 
   void _scrollToSection(GlobalKey key) {
@@ -144,6 +163,10 @@ class _MouseHomePageState extends State<MouseHomePage> {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 800;
     const showEffects = true;
+
+    // --- LOGIC FOR VIEW ALL ---
+    // If _showAllProjects is true, show full list. Else show first 3.
+    final visibleProjects = _showAllProjects ? myProjects : myProjects.take(3).toList();
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -185,7 +208,6 @@ class _MouseHomePageState extends State<MouseHomePage> {
               // 2. Main Layout
               Column(
                 children: [
-                  // --- FIXED HEADER ---
                   Container(
                     width: double.infinity,
                     color: Colors.black.withOpacity(0.9),
@@ -193,10 +215,9 @@ class _MouseHomePageState extends State<MouseHomePage> {
                     child: _buildHeader(isMobile),
                   ),
 
-                  // --- SCROLLABLE CONTENT ---
                   Expanded(
                     child: SingleChildScrollView(
-                      padding: EdgeInsets.only(top: 50),
+                      padding: const EdgeInsets.only(top: 50),
                       child: Column(
                         children: [
                           Container(
@@ -300,7 +321,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
 
                                 const SizedBox(height: 100),
 
-                                // --- NEW EXPERIENCE SECTION ---
+                                // Experience
                                 Container(
                                   key: _experienceKey,
                                   child: Column(
@@ -310,8 +331,6 @@ class _MouseHomePageState extends State<MouseHomePage> {
                                       const SizedBox(height: 50),
                                       Text("MY EXPERIENCE", style: TextStyle(fontSize: isMobile ? 12 : 14, letterSpacing: 2, color: Colors.white)),
                                       const SizedBox(height: 30),
-
-                                      // Experience List
                                       ...myExperience.map((exp) {
                                         return ExperienceCard(
                                           year: exp['year']!,
@@ -326,7 +345,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
 
                                 const SizedBox(height: 100),
 
-                                // Projects
+                                // Projects List
                                 Container(
                                   key: _workKey,
                                   child: Column(
@@ -340,18 +359,39 @@ class _MouseHomePageState extends State<MouseHomePage> {
                                   ),
                                 ),
 
-                                ...myProjects.map((project) {
+                                // --- DYNAMIC PROJECT LIST ---
+                                ...visibleProjects.map((project) {
                                   return Padding(
                                     padding: const EdgeInsets.only(bottom: 80),
                                     child: _buildProjectItem(isMobile, project),
                                   );
                                 }).toList(),
 
+                                // --- VIEW ALL BUTTON ---
+                                Center(
+                                  child: OutlinedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _showAllProjects = !_showAllProjects;
+                                      });
+                                    },
+                                    style: OutlinedButton.styleFrom(
+                                      side: const BorderSide(color: Colors.white),
+                                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                    ),
+                                    child: Text(
+                                      _showAllProjects ? "SHOW LESS" : "VIEW ALL PROJECTS",
+                                      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1),
+                                    ),
+                                  ),
+                                ),
+
                               ],
                             ),
                           ),
 
-                          const SizedBox(height: 50),
+                          const SizedBox(height: 80),
 
                           // Footer
                           Container(
@@ -437,7 +477,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       _navLink("Home", () => _scrollToSection(_homeKey)),
       _navLink("Skills", () => _scrollToSection(_skillsKey)),
       _navLink("Services", () => _scrollToSection(_servicesKey)),
-      _navLink("Experience", () => _scrollToSection(_experienceKey)), // NEW LINK
+      _navLink("Experience", () => _scrollToSection(_experienceKey)),
       _navLink("Work", () => _scrollToSection(_workKey)),
       _navLink("Contact", () => _scrollToSection(_contactKey)),
     ];
@@ -530,7 +570,7 @@ class _ServiceCardState extends State<ServiceCard> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.all(30),
-        decoration: BoxDecoration(color: isHovered ? Colors.white : Colors.black, border: Border.all(color: Colors.white24), borderRadius: BorderRadius.circular(20)),
+        decoration: BoxDecoration(color: isHovered ? Colors.white : Colors.transparent, border: Border.all(color: isHovered ? Colors.white : Colors.white24), borderRadius: BorderRadius.circular(15)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [Icon(widget.icon, size: 40, color: isHovered ? Colors.black : Colors.white), const SizedBox(height: 20), Text(widget.title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: isHovered ? Colors.black : Colors.white)), const SizedBox(height: 10), Text(widget.desc, style: TextStyle(fontSize: 14, color: isHovered ? Colors.grey[800] : Colors.grey))]),
       ),
     );
