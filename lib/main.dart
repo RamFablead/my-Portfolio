@@ -15,7 +15,7 @@ class BwPortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "RAM'S PORTFOLIO",
+      title: "RAM MER'S PORTFOLIO",
 
       // ************ 🔥 NEW ORANGE DARK THEME 🔥 ************
       theme: ThemeData(
