@@ -15,7 +15,7 @@ class BwPortfolioApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "HARESH'S PORTFOLIO",
+      title: "RAM'S PORTFOLIO",
 
       // ************ 🔥 NEW ORANGE DARK THEME 🔥 ************
       theme: ThemeData(
@@ -193,17 +193,6 @@ class _MouseHomePageState extends State<MouseHomePage> {
     },
     {
       "number": "03",
-      "title": "Wavee Pet",
-      "desc": "Wavee Pets is the ultimate platform for pet lovers.",
-      "image":
-      "https://cdn.prod.website-files.com/68e7cc1eb18069b17c9cd8e7/68e7e3baf19e226cf4cd117c_Pet-Life.jpg",
-      "link": "https://github.com/HirenChandaliya/gyan.git",
-      "ios": "https://apps.apple.com/us/app/wavee-pet/id6746203457",
-      "android":
-      "https://play.google.com/store/apps/details?id=com.pets.wavee&hl=en_IN",
-    },
-    {
-      "number": "04",
       "title": "CRM App",
       "desc": "Custom CRM solution for managing client relationships.",
       "image":
@@ -213,7 +202,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "https://play.google.com/store/apps",
     },
     {
-      "number": "05",
+      "number": "04",
       "title": "Fitness Tracker",
       "desc": "A workout tracking app with diet plans and progress charts.",
       "image":
@@ -223,7 +212,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "",
     },
     {
-      "number": "06",
+      "number": "05",
       "title": "Grubb Food & Dine-in",
       "desc":
       "Gruubb – Great taste, fresh meals, and smooth dining every time.",
@@ -233,7 +222,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "",
     },
     {
-      "number": "07",
+      "number": "06",
       "title": "Grubb Merchant",
       "desc":
       "Track orders in real-time, analyze sales like a pro, all from the palm of your hand. Optimise menus, boost deliveries, and watch your profits soar.Grubb Merchant - Take control, deliver success",
@@ -244,7 +233,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "",
     },
     {
-      "number": "08",
+      "number": "07",
       "title": "Grubb Bolt(Driver)",
       "desc":
       "Grubb Bolt is your ultimate companion for managing food deliveries on the go. Designed specifically for delivery agents, this powerful app provides you with everything you need to streamline your tasks, maximize efficiency, and increase your earnings—all from the convenience of your smartphone.",
@@ -255,7 +244,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "",
     },
     {
-      "number": "09",
+      "number": "08",
       "title": "Localwala App",
       "desc":
       "With the Localwala App, customers can easily shop from nearby stores and discounts available on the Localwala App.",
@@ -266,7 +255,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "",
     },
     {
-      "number": "10",
+      "number": "09",
       "title": "Udibaba",
       "desc":
       "Welcome to Udibaba, your one-stop platform to buy fresh and high-quality fruits directly from sellers across the country. Whether you're craving seasonal fruits or need a variety of fresh produce, Udibaba ensures that you can easily browse through a wide selection of fruit vendors near you. With our user-friendly interface, customers can:Explore a wide variety of fresh fruits, including local and exotic options.Place orders from multiple sellers in just a few taps.Enjoy safe and secure payment options, with a range of payment methods available.",
@@ -277,7 +266,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "",
     },
     {
-      "number": "11",
+      "number": "10",
       "title": "Udibaba Store",
       "desc":
       "dibaba Store is the perfect platform for sellers to showcase their fresh fruits and expand their reach to customers across the country. This app is designed to make it easier for fruit vendors to manage their inventory, track orders, and grow their business.",
@@ -288,7 +277,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
       "android": "",
     },
     {
-      "number": "12",
+      "number": "11",
       "title": "TEEESSENTIALS",
       "desc":
       "Casa App is a order booking app which is used by its internal users and distributors. Users will be able to see entire catalogue of products and book orders on the app. The advantage of the application is it has up to date stock values which a user can see while booking an order.",
@@ -452,7 +441,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
           const Text("HELLO, I AM", style: TextStyle(color: Colors.orange, letterSpacing: 3)),
           const SizedBox(height: 10),
           Text(
-            "HARESH\nMANGUKIYA",
+            "RAM\nMER",
             style: TextStyle(fontSize: isMobile ? 45 : 100, fontWeight: FontWeight.w900),
           ),
           const SizedBox(height: 10),
@@ -654,11 +643,11 @@ class _MouseHomePageState extends State<MouseHomePage> {
           const Text("LET'S CONNECT!", style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold, color: Colors.orange)),
           const SizedBox(height: 40),
           ElevatedButton(
-            onPressed: () => openLink("mailto:hareshmangukiya786@gmail.com"),
+            onPressed: () => openLink("mailto:rammer6424@gmail.com"),
             child: const Text("📩  Email Me"),
           ),
           const SizedBox(height: 40),
-          const Text("© 2025 HARESH MANGUKIYA", style: TextStyle(color: Colors.white30)),
+          const Text("© 2025 RAM MER", style: TextStyle(color: Colors.white30)),
         ],
       ),
     );
