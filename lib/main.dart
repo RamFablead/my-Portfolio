@@ -779,6 +779,8 @@
 //     );
 //   }
 // }
+
+
 import 'dart:html' as html; // Web specific
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -1325,7 +1327,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "SKILLS",
+            "MY SKILLS",
             style: TextStyle(
               color: Color(0xFF00D4AA),
               fontSize: 18,
@@ -1349,7 +1351,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
                     borderRadius: BorderRadius.circular(40),
                     color: selected ? const Color(0xFF00D4AA) : Colors.transparent,
                     border: Border.all(
-                      color: selected ? const Color(0xFF00D4AA) : const Color(0xFF00D4AA).withOpacity(0.5),
+                      color: selected ? const Color(0xFF00D4AA) : Colors.white24,
                       width: 1.5,
                     ),
                   ),
@@ -1369,7 +1371,7 @@ class _MouseHomePageState extends State<MouseHomePage> {
           Container(
             padding: const EdgeInsets.all(30),
             decoration: BoxDecoration(
-              color: const Color(0xFF1A1F3D), // Darker blue card
+              color: Colors.black.withOpacity(0.3),
               borderRadius: BorderRadius.circular(20),
               border: Border.all(color: const Color(0xFF00D4AA).withOpacity(0.3)),
             ),
@@ -1508,6 +1510,13 @@ class _MouseHomePageState extends State<MouseHomePage> {
               image: NetworkImage(project['image']!),
               fit: BoxFit.cover,
             ),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xFF00D4AA).withOpacity(0.3),
+                blurRadius: 20,
+                spreadRadius: 5,
+              ),
+            ],
           ),
         ),
         const SizedBox(height: 25),
@@ -1525,7 +1534,6 @@ class _MouseHomePageState extends State<MouseHomePage> {
           style: const TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
-            color: Colors.white, // સફેદ રંગ ઉમેર્યો
           ),
         ),
         const SizedBox(height: 15),
@@ -1537,7 +1545,36 @@ class _MouseHomePageState extends State<MouseHomePage> {
             height: 1.6,
           ),
         ),
-        // ... rest unchanged
+        const SizedBox(height: 20),
+        Wrap(
+          spacing: 15,
+          children: [
+            if (project['android']!.isNotEmpty && project['android'] != "https://play.google.com/store/apps")
+              OutlinedButton(
+                onPressed: () => openLink(project['android']!),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.android, size: 18),
+                    SizedBox(width: 8),
+                    Text("Play Store"),
+                  ],
+                ),
+              ),
+            if (project['ios']!.isNotEmpty && project['ios'] != "https://apps.apple.com/app-link")
+              OutlinedButton(
+                onPressed: () => openLink(project['ios']!),
+                child: const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.apple, size: 18),
+                    SizedBox(width: 8),
+                    Text("App Store"),
+                  ],
+                ),
+              ),
+          ],
+        ),
       ],
     );
   }
@@ -1743,6 +1780,7 @@ class ExperienceCard extends StatefulWidget {
   @override
   State<ExperienceCard> createState() => _ExperienceCardState();
 }
+
 
 class _ExperienceCardState extends State<ExperienceCard> {
   bool isHovered = false;
